@@ -103,7 +103,7 @@ export const Login = () => {
                     href="register"
                     className="font-medium text-primary-600 hover:underline dark:text-primary-500"
                   >
-                    Login here
+                    Register here
                   </Link>
                 </p>
               </form>

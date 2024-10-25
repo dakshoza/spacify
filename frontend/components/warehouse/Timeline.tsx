@@ -6,9 +6,9 @@ export const Timeline = () => {
     <nav className="bg-black shadow-md p-4 flex justify-between items-center">
       <h1 className="text-2xl font-bold text-white-800">Spacify</h1>
       <div className="space-x-4">
-        <button className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
+        {/* <button className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
           Offboard
-        </button>
+        </button> */}
         <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
           Logout
         </button>

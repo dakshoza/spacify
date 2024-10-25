@@ -1,18 +1,11 @@
-<<<<<<< Updated upstream
-=======
-import { Dashboard } from "@/components/warehouse/Dashboard";
->>>>>>> Stashed changes
+import Landingpage from "@/components/Landingpage";
 
 
 export default function Home() {
   return (
     <>
-<<<<<<< Updated upstream
-  
-=======
 
-      <Dashboard />
->>>>>>> Stashed changes
+      <Landingpage/>
     </>
   );
 }

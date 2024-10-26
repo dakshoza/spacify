@@ -1,7 +1,6 @@
 
 import Cards from "@/components/client/Dashboard/Cards";
 import Chart from "@/components/client/Dashboard/Chart";
-import { Tables } from "@/components/client/Dashboard/Tables";
 import { SideBar } from "@/components/client/SideBar";
 import React from "react";
 

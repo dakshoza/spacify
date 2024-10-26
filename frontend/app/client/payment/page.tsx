@@ -1,12 +1,14 @@
+import { SideBar } from '@/components/client/SideBar'
 import React from 'react'
 
 export default function page() {
   return (
     <>
-    <section className="bg-white py-8 antialiased dark:bg-gray-900 md:py-16">
+    <SideBar></SideBar>
+    <section className="bg-white py-8 antialiased dark:bg-gray-900 md:py-16 mt-44 mx-72">
   <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
     <div className="mx-auto max-w-5xl">
-      <h2 className="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">Payment</h2>
+      <h2 className="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl mx-72">Payment</h2>
 
       <div className="mt-6 sm:mt-8 lg:flex lg:items-start lg:gap-12">
         <form action="#" className="w-full rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 sm:p-6 lg:max-w-xl lg:p-8">

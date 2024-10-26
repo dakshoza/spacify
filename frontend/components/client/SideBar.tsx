@@ -1,7 +1,25 @@
+"use client"
+
 import Link from "next/link";
-import React from "react";
+import { useRouter } from "next/navigation";
+import React, { useEffect } from "react";
 
 export const SideBar = () => {
+
+  const router = useRouter();
+
+  const handlesignout = () => {
+    localStorage.removeItem('client');
+    
+    router.push('/client/login');
+  };
+
+  useEffect(() => {
+    if (localStorage.getItem('client') == null) {
+      router.push('/client/login');
+    }
+  }, []);
+
   return (
     <>
     
@@ -112,7 +130,7 @@ export const SideBar = () => {
               </Link>
             </li>
             
-            <li>
+            <li onClick={handlesignout}>
               <a
                 href="#"
                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"

@@ -18,24 +18,26 @@ export const Login = () => {
       toast.error("Please fill in all fields");
       return;
     }
-  
-      setEmail("");
-      setPassword("");
 
+    const formdata = new FormData();
+    formdata.append("email", email);
+    formdata.append("password", password);
+
+    const res = await fetch("https://spacifyapi.pythonanywhere.com/api/v1/clientlogin", {
+        method: "POST",
+        body: formdata,
+      });
+
+    if (res.status == 200) {
+      toast.success("Login successful");
+      localStorage.setItem("client", email); //hardcoded👀
       router.push("/client");
-
-    // const formdata = new FormData();
-    // formdata.append("email", email);
-    // formdata.append("password", password);
-
-    // const res = await fetch("https://spacifyapi.pythonanywhere.com/api/v1/clientlogin", {
-    //     method: "POST",
-    //     body: formdata,
-    //   });
-
-    // if (res.status == 200) {
+    }
+    else {
+      toast.error("Login failed");
+      return;
+    }
   
-    router.push("/client");
   
   };
 

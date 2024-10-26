@@ -1,6 +1,69 @@
-import React from "react";
+"use client"
+
+import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
+
+interface productDetails {
+    name: string;
+    description: string;
+    category: string;
+    price: string;
+}
 
 export const Tables = () => {
+
+    const [products, setProducts] = useState<productDetails[]>([]);
+
+    const router = useRouter();
+
+    async function getProducts(){
+
+        const email = localStorage.getItem("client") || "";
+
+        if(email == ""){
+            router.push("/client/login");
+            return;
+        }
+
+        const res = await fetch(`https://spacifyapi.pythonanywhere.com/api/v1/get_product_by_client_id?client_id=${email}`);
+        const data = await res.json();
+
+        //    data will be like this
+        // [
+        //     [
+        //         1,
+        //         "test1",
+        //         "test prod",
+        //         20.0,
+        //         "brush",
+        //         "test000@gmail.com"
+        //     ],
+        //     [
+        //         2,
+        //         "test2",
+        //         "test prod2",
+        //         20.0,
+        //         "brush2",
+        //         "test000@gmail.com"
+        //     ]
+        // ]
+
+        const products = data.map((product: any) => ({
+            name: product[1],
+            description: product[2],
+            price: product[3],
+            category: product[4]
+        }));
+
+        setProducts(products);
+        
+    }
+
+
+    useEffect(() => {
+        getProducts();
+        
+    }, []);
   return <>
     
 
@@ -12,7 +75,7 @@ export const Tables = () => {
                     Product name
                 </th>
                 <th scope="col" className="px-6 py-3">
-                    Color
+                description
                 </th>
                 <th scope="col" className="px-6 py-3">
                     Category
@@ -23,51 +86,26 @@ export const Tables = () => {
             </tr>
         </thead>
         <tbody>
-            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+            {products && products.map((product, index) => (
+                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700" key={index}>
                 <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Apple MacBook Pro 17"
+                    {product.name}
                 </th>
                 <td className="px-6 py-4">
-                    Silver
+                    {product.description}
                 </td>
                 <td className="px-6 py-4">
-                    Laptop
+                    {product.category}
                 </td>
                 <td className="px-6 py-4">
-                    $2999
+                    {product.price}
                 </td>
             </tr>
-            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Microsoft Surface Pro
-                </th>
-                <td className="px-6 py-4">
-                    White
-                </td>
-                <td className="px-6 py-4">
-                    Laptop PC
-                </td>
-                <td className="px-6 py-4">
-                    $1999
-                </td>
-            </tr>
-            <tr className="bg-white dark:bg-gray-800">
-                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Magic Mouse 2
-                </th>
-                <td className="px-6 py-4">
-                    Black
-                </td>
-                <td className="px-6 py-4">
-                    Accessories
-                </td>
-                <td className="px-6 py-4">
-                    $99
-                </td>
-            </tr>
+            ))}
         </tbody>
     </table>
 </div>
 
   </>;
 };
+

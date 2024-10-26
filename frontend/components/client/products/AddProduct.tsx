@@ -8,7 +8,7 @@ const AddProduct: FC = () => {
   const [productName, setProductName] = useState<string>("");
   const [price, setPrice] = useState<number>(0);
   const [productDetails, setProductDetails] = useState<string>("");
-  
+
   const router = useRouter();
 
   const handleSubmit = async (e: FormEvent) => {
@@ -19,9 +19,9 @@ const AddProduct: FC = () => {
       return;
     }
 
-    const client = localStorage.getItem("client") || ""
-    
-    if(client == ""){
+    const client = localStorage.getItem("client") || "";
+
+    if (client == "") {
       router.push("/client/login");
       return;
     }
@@ -57,7 +57,7 @@ const AddProduct: FC = () => {
   }, []);
 
   return (
-    <form onSubmit={handleSubmit} className="m-20">
+    <form onSubmit={handleSubmit} className="m-10 rounded-3xl mx-32 p-10 bg-gray-900">
       <h1 className="text-4xl font-bold text-center">Add Products</h1>
       <div className="my-6">
         <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -102,16 +102,29 @@ const AddProduct: FC = () => {
         ></textarea>
       </div>
 
-      <div className="w-full flex justify-center">
+<div className="mb-9">
+<label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+        distribucion Types
+      </label>
+      <select
+        id="countries"
+        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      >
+        <option>Equal distribucion</option>
+        <option disabled>Custome distribucion</option>
+        <option disabled>Smart distribucion</option>
+      </select>
+</div>
 
-      <button
-        type="submit"
-        className="w-1/2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        onSubmit={handleSubmit}
+      <div className="w-full flex justify-center">
+        <button
+          type="submit"
+          className="w-1/2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          onSubmit={handleSubmit}
         >
-        Add Product
-      </button>
-        </div>
+          Add Product
+        </button>
+      </div>
     </form>
   );
 };

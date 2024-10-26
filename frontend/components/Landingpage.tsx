@@ -245,7 +245,7 @@ export default function Landingpage() {
           <span className="bg-yellow-500 text-white px-3 py-1 tracking-widest text-xs absolute right-0 top-0 rounded-bl">POPULAR</span>
           <h2 className="text-sm tracking-widest text-gray-400 title-font mb-1 font-medium">PRO</h2>
           <h1 className="text-5xl text-white leading-none flex items-center pb-4 mb-4 border-b border-gray-800">
-            <span>$38</span>
+            <span>₹380</span>
             <span className="text-lg ml-1 font-normal text-gray-400">/mo</span>
           </h1>
           <p className="flex items-center text-gray-400 mb-2">
@@ -294,7 +294,7 @@ export default function Landingpage() {
         <div className="h-full p-6 rounded-lg border-2 border-gray-700 flex flex-col relative overflow-hidden">
           <h2 className="text-sm tracking-widest text-gray-400 title-font mb-1 font-medium">BUSINESS</h2>
           <h1 className="text-5xl text-white leading-none flex items-center pb-4 mb-4 border-b border-gray-800">
-            <span>$56</span>
+            <span>₹560</span>
             <span className="text-lg ml-1 font-normal text-gray-400">/mo</span>
           </h1>
           <p className="flex items-center text-gray-400 mb-2">

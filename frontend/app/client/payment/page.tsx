@@ -5,7 +5,7 @@ export default function page() {
   return (
     <>
     <SideBar></SideBar>
-    <section className="bg-white py-8 antialiased dark:bg-gray-900 md:py-16 mt-44 mx-72">
+    <section className=" py-8 antialiased md:py-36 pt-10 pl-72">
   <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
     <div className="mx-auto max-w-5xl">
       <h2 className="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl mx-72">Payment</h2>

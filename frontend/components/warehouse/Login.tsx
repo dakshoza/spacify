@@ -1,42 +1,22 @@
 "use client"
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-
-interface UserDetails {
-    email: string;
-    name: string;
-    password: string;
-}
 
 export const Login = () => {
 
-    const [userDetails, setUserDetails] = useState<UserDetails>(
-        {
-            email: "",
-            name: "",
-            password: ""
-        }
-    );
+    const router = useRouter();
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        if(userDetails.password.length < 8) {
-            alert("Password must be at least 8 characters long");
+        if(e.currentTarget.email.value === "" || e.currentTarget.password.value === ""){
+            alert("Please fill all the fields");
             return;
         }
 
-        const form = e.target as HTMLFormElement;
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData);
-        setUserDetails(
-            {
-                email: data.email as string,
-                name: data.name as string,
-                password: data.password as string,
-            }
-        );
+        router.push("/warehouse");
     };
 
 
@@ -63,18 +43,6 @@ export const Login = () => {
                     id="email"
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="name@company.com"
-                  />
-                </div>
-                <div>
-                  <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                    Your Name
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    id="name"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="username"
                   />
                 </div>
                 

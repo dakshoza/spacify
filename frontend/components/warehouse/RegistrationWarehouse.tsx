@@ -1,42 +1,18 @@
 "use client"
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
-interface UserDetails {
-    email: string;
-    name: string;
-    password: string;
-}
 
 export const RegistrationWarehouse = () => {
 
-    const [userDetails, setUserDetails] = useState<UserDetails>(
-        {
-            email: "",
-            name: "",
-            password: "",
-        }
-    );
+  const router = useRouter();
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        if(userDetails.password.length < 8) {
-            alert("Password must be at least 8 characters long");
-            return;
-        }
-
-        const form = e.target as HTMLFormElement;
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData);
-        setUserDetails(
-            {
-                email: data.email as string,
-                name: data.name as string,
-                password: data.password as string,
-            }
-        );
+      router.push("/warehouse");
     };
 
 

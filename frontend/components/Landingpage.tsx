@@ -10,8 +10,8 @@ export default function Landingpage() {
       <span className="ml-3 text-xl">Spacify</span>
     </a>
     <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-      <Link className="mr-5 hover:text-white" href="/client">Client</Link>
-      <Link className="mr-5 hover:text-white" href={"/warehouse"}>Warehouse Owners</Link>
+      <Link className="mr-5 hover:text-white" href="/client/login">Client</Link>
+      <Link className="mr-5 hover:text-white" href={"/warehouse/login"}>Warehouse Owners</Link>
     </nav>
   </div>
 </header>

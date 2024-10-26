@@ -54,9 +54,9 @@ export const SideBar = () => {
         <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
           <ul className="space-y-2 font-medium">
           <li className="my-5">
-              <h1 className="text-2xl font-semibold text-gray-900 dark:text-white">
+              <Link href={"/"} className="text-2xl font-semibold text-gray-900 dark:text-white">
                 Client Dashboard
-              </h1>
+              </Link>
             </li>
             <li>
               <Link

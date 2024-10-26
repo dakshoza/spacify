@@ -48,7 +48,7 @@ export const Tables = () => {
         //     ]
         // ]
 
-        const products = data.map((product: any) => ({
+        const products = data.map((product: string[]) => ({
             name: product[1],
             description: product[2],
             price: product[3],

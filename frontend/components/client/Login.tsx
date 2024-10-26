@@ -90,7 +90,7 @@ export const Login = () => {
                   Login for supplier
                 </button>
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                  Don't have an account yet?
+                  Dont have an account yet?
                   <Link
                     href="register"
                     className="font-medium text-primary-600 hover:underline dark:text-primary-500"

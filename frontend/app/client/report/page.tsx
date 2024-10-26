@@ -4,7 +4,7 @@ import { SideBar } from "@/components/client/SideBar";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 
-export default function page() {
+export default function Page() {
 
   const [report, setReport] = useState<string>("");
 
